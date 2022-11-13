@@ -12,20 +12,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+import lombok.ALLArgsConstructor;
 @Entity
 
 @AllArgsConstructor
 
 public class SecteurActivite implements Serializable{
-	public SecteurActivite(Long idSecteurActivite, String codeSecteurActivite, String libelleSecteurActivite,
-			Set<Fournisseur> fournisseurs) {
-		super();
-		this.idSecteurActivite = idSecteurActivite;
-		this.codeSecteurActivite = codeSecteurActivite;
-		this.libelleSecteurActivite = libelleSecteurActivite;
-		this.fournisseurs = fournisseurs;
-	}
+	
 	public SecteurActivite() {
 		super();
 		// TODO Auto-generated constructor stub
