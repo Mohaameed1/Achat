@@ -14,76 +14,18 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-
+@Getter
+@Setter
 @AllArgsConstructor
-
+@NoArgsConstructor
 public class Fournisseur implements Serializable {
 
-	public Long getIdFournisseur() {
-		return idFournisseur;
-	}
-	public void setIdFournisseur(Long idFournisseur) {
-		this.idFournisseur = idFournisseur;
-	}
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
-	public Fournisseur() {
-		super();
-	}
-	public String getLibelle() {
-		return libelle;
-	}
-	public void setLibelle(String libelle) {
-		this.libelle = libelle;
-	}
-	public CategorieFournisseur getCategorieFournisseur() {
-		return categorieFournisseur;
-	}
-	public void setCategorieFournisseur(CategorieFournisseur categorieFournisseur) {
-		this.categorieFournisseur = categorieFournisseur;
-	}
-	public Set<Facture> getFactures() {
-		return factures;
-	}
-	public void setFactures(Set<Facture> factures) {
-		this.factures = factures;
-	}
-	public Set<SecteurActivite> getSecteurActivites() {
-		return secteurActivites;
-	}
-	public void setSecteurActivites(Set<SecteurActivite> secteurActivites) {
-		this.secteurActivites = secteurActivites;
-	}
-	public DetailFournisseur getDetailFournisseur() {
-		return detailFournisseur;
-	}
-	public void setDetailFournisseur(DetailFournisseur detailFournisseur) {
-		this.detailFournisseur = detailFournisseur;
-	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	public Fournisseur(Long idFournisseur, String code, String libelle, CategorieFournisseur categorieFournisseur,
-			Set<Facture> factures, Set<SecteurActivite> secteurActivites, DetailFournisseur detailFournisseur) {
-		super();
-		this.idFournisseur = idFournisseur;
-		this.code = code;
-		this.libelle = libelle;
-		this.categorieFournisseur = categorieFournisseur;
-		this.factures = factures;
-		this.secteurActivites = secteurActivites;
-		this.detailFournisseur = detailFournisseur;
-	}
 	private static final long serialVersionUID = 1L;
 
 	@Id
