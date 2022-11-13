@@ -38,6 +38,11 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
+                        <groupId>junit</groupId>
+                        <artifactId>junit</artifactId>
+                        <scope>test</scope>
+        </dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
@@ -58,6 +63,21 @@
 
 	<build>
 		<plugins>
+		
+		
+		
+		 <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-surefire-plugin</artifactId>
+                                <version>3.0.0-M7</version>
+                                <dependencies>
+                                        <dependency>
+                                                <groupId>org.apache.maven.surefire</groupId>
+                                                <artifactId>surefire-junit47</artifactId>
+                                                <version>3.0.0-M7</version>
+                                        </dependency>
+                                </dependencies>
+                        </plugin>
 		<plugin>
                <groupId>org.apache.maven.plugins</groupId>
                <artifactId>maven-resources-plugin</artifactId>
