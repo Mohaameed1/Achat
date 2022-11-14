@@ -54,6 +54,22 @@ pipeline{
                                            }
                                            }
         }
+	 post {
+		
+                success {
+                     mail to: "nassim.jmal@esprit.tn",
+                            subject: "Build sucess",
+                            body: "sucess"
+                    echo 'successful'
+                }
+                failure {
+                     mail to: "nassim.jmal@esprit.tn",
+                            subject: "Build failed",
+                            body: "failed"
+                    echo 'failed'
+                }
+              
+        }
 }
 
 
