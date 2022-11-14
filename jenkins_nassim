@@ -53,6 +53,37 @@ pipeline{
                                                 version: '1.0'
                                            }
                                            }
+					   
+					       stage('Build docker image'){
+            steps{
+                script{
+                    sh 'docker build -t nassimjm/springprojet .'
+                }
+            }
+        }
+
+             stage("DockerLogin") {
+                steps {
+                sh 'docker login --username nassimjm --password 123456789'
+                }
+                }
+
+   stage("DockerPush") {
+                 steps {
+                 sh 'docker push nassimjm/springprojet'
+                }
+                }
+           
+            
+             
+
+              stage("DockerCompose") {
+                 steps {
+                 sh 'docker-compose up -d '
+                }
+                }
+		     
+		 
         }
 	 post {
 		
