@@ -6,10 +6,9 @@ pipeline{
      maven 'M2_HOME'
   }
       environment {
-        registry = 'yacinef/springprojet'
-        registryCredential = 'dockerid'
-        dockerImage = ''
-    }
+
+         DOCKERHUB_CREDENTIALS = credentials('dockerid')
+	 }
       
      
      
@@ -41,6 +40,27 @@ pipeline{
                 echo """Bravo! tous les tests sont pris en charge"""
                 }
             }
+	    
+	    stage("DockerLogin") {
+                steps {
+                sh 'docker login --username yacinef --password @yacine123'
+                }
+                }
+
+   stage("DockerPush") {
+                 steps {
+                 sh 'docker push yacinef/springprojet'
+                }
+                }
+           
+            
+             
+
+              stage("DockerCompose") {
+                 steps {
+                 sh 'docker-compose up -d '
+                }
+                }
 	
 	
 
