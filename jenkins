@@ -86,6 +86,7 @@ pipeline{
                      }
 		     
 		     */
+		     /*
                stage("upload war to nexus") {
                                            steps {
                                          nexusArtifactUploader artifacts:
@@ -103,6 +104,13 @@ pipeline{
                                                 version: '1.0'
                                            }
                                            }
+					   /*
+	       stage ('Maven Test Sonar') {
+            steps {
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=@yacine123'
+            }
+
+        }
 					   
 
         }
