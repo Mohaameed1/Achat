@@ -48,14 +48,9 @@ pipeline{
             
              
 
-              stage("DockerCompose") {
-                 steps {
-                 sh 'docker-compose up -d '
-                }
-                }
-	
+              
 
-/*
+
         stage('Build docker image'){
             steps{
                 script{
@@ -88,7 +83,13 @@ pipeline{
               
             }
            }
-		*/			   
+			
+		
+	stage("DockerCompose") {
+                 steps {
+                 sh 'docker-compose up -d '
+                }
+                }	
 
         }
 	  post {
