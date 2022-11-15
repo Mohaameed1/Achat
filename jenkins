@@ -1,6 +1,10 @@
 pipeline{
 
-      agent any
+       agent any
+        tools {
+     jdk 'JAVA_HOME'
+     maven 'M2_HOME'
+  }
       environment {
         registry = 'yacinef/springprojet'
         registryCredential = 'dockerid'
