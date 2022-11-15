@@ -1,11 +1,10 @@
 version: "2"
 
 services:
-
-Sonarqube:
+ Sonarqube:
   image: sonarqube:8.9.7-community
   ports:
-   - "9000:9000"
+   - "9001:9000"
    - "9092:9092"
   volumes:
    - 'sonarQube_data:/opt/SonarQube/data'
@@ -18,6 +17,7 @@ Sonarqube:
    - "8081:8081"
   volumes:
    - "nexus-data:/sonatype-work"
+
 volumes:
  sonarQube_data:
  sonarQube_extensions:
