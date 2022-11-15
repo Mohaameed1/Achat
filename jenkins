@@ -109,8 +109,7 @@ pipeline{
             steps {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=@yacine123'
             }
-
-        }
+          }
 					   
 
         }
