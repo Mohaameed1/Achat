@@ -13,7 +13,13 @@ pipeline{
      
      
         stages{
-
+   stage ('GIT CHECK-OUT') {
+            steps {
+                
+                git branch: 'yacine', 
+                url: 'https://github.com/Mohaameed1/Achat.git'   
+            }  
+        }
             stage('Cleaning the project') {
                  steps{
                     sh 'mvn -B -DskipTests clean  '
