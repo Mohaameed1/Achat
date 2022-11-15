@@ -22,7 +22,7 @@ services:
       - projectnetwork 
     restart: on-failure     
   angular:
-    image: mohamedamorri/front
+    image: mohamedamorri/angular
     container_name: angular
     ports: 
       - 80:80
