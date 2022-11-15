@@ -18,4 +18,8 @@ Sonarqube:
    - "8081:8081"
   volumes:
    - "nexus-data:/sonatype-work"
-
+volumes:
+ sonarQube_data:
+ sonarQube_extensions:
+ sonarQube_logs:
+ nexus-data:
