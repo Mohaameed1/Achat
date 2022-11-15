@@ -44,27 +44,14 @@ pipeline{
 	
 	
 
-        stage ('DOCKER BUILD IMAGE'){
+       stage('Build docker image'){
             steps{
-                script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                script{
+                    sh 'docker build -t yacinef/springprojet .'
                 }
             }
         }
-        stage('DOCKER PUSH IMAGE') {
-            steps{
-                script {
-                    docker.withRegistry( '', registryCredential ) {
-                    dockerImage.push()
-                    }
-                }
-            }
-        }
-        stage('DOCKER CLEANING UP') {
-            steps{
-                sh "docker rmi $registry:$BUILD_NUMBER"
-            }
-        }
+       
 
              
 		     
