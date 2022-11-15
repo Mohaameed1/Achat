@@ -1,26 +1,7 @@
 version: "2"
 
 services:
-  mysqldb:
-    image: mysql:5.6
-    ports:
-      - 3306:3306
-    environment:
-      MYSQL_DATABASE: achatdb
-      MYSQL_PASSWORD: root
-      MYSQL_ROOT_PASSWORD:         
-  application:
-    image: achat
-    build: .
-    restart: always
-    depends_on:
-      - mysqldb 
-    ports:
-      - 8089:8089
 
-
-
-/*
 Sonarqube:
   image: sonarqube:8.9.7-community
   ports:
@@ -38,9 +19,3 @@ Sonarqube:
   volumes:
    - "nexus-data:/sonatype-work"
 
-volumes:
- sonarQube_data:
- sonarQube_extensions:
- sonarQube_logs:
- nexus-data:
- */
