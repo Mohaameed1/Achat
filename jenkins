@@ -1,6 +1,11 @@
-pipeline{
+ppipeline{
 
       agent any
+      environment {
+        registry = 'yacinef/springprojet'
+        registryCredential = 'dockerid'
+        dockerImage = ''
+    }
         tools {
      jdk 'JAVA_HOME'
      maven 'M2_HOME'
@@ -32,16 +37,25 @@ pipeline{
 	
 	
 
-             
-
-   
-           
-
-		       stage('Build docker image'){
+             stage ('DOCKER BUILD IMAGE'){
             steps{
-                script{
-                    sh 'docker build -t yacine/springprojet .'
+                script {
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
+            }
+        }
+        stage('DOCKER PUSH IMAGE') {
+            steps{
+                script {
+                    docker.withRegistry( '', registryCredential ) {
+                    dockerImage.push()
+                    }
+                }
+            }
+        }
+        stage('DOCKER CLEANING UP') {
+            steps{
+                sh "docker rmi $registry:$BUILD_NUMBER"
             }
         }
 
