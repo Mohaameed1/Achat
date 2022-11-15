@@ -63,6 +63,16 @@ pipeline{
                 sh 'docker login --username yacinef --password @yacine123'
                 }
                 }
+		
+		stage('DOCKER PUSH IMAGE') {
+            steps{
+                script {
+                    docker.withRegistry( 'dockerid', registryCredential ) {
+                    dockerImage.push()
+                    }
+                }
+            }
+        }
        /*
         stage("DockerPush") {
                  steps {
