@@ -12,7 +12,7 @@ services:
      - projectnetwork
      
   spring-boot:
-    image: mohamedamorri/achat:1.0
+    image: aminejridi/achat:1.0
     container_name: spring
     ports:
       - 8089:8089
