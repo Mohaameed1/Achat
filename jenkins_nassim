@@ -75,7 +75,7 @@ pipeline{
 
    stage("DockerPush") {
                  steps {
-                 sh 'docker push nassimjm/springprojet'
+                 sh 'docker push nassimjm/springprojet:latest'
                 }
                 }
            
