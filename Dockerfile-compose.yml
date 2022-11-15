@@ -1,0 +1,35 @@
+version: '3'
+services:
+  database:
+    image: mysql
+    container_name: mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_DATABASE: tpachato   
+    ports:
+      - 3306:3306
+    networks:
+     - projectnetwork
+     
+  spring-boot:
+    image: mohamedhediguefrech/achat:1.0
+    container_name: spring
+    ports:
+      - 8089:8089
+    depends_on:
+      - database
+    networks:
+      - projectnetwork 
+    restart: on-failure     
+  angular:
+    image: mohamedhediguefrech/front
+    container_name: angular
+    ports: 
+      - 80:80
+    depends_on:
+      - spring-boot
+    networks:
+      - projectnetwork
+  
+networks:
+  projectnetwork:
