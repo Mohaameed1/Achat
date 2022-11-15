@@ -92,20 +92,12 @@ pipeline{
                 }	
 
         }
-	  post {
-		
-                success {
-                     mail to: "yacine.feki@esprit.tn",
-                            subject: "Build sucess",
-                            body: "sucess"
-                    echo 'successful'
-                }
-                failure {
-                     mail to: "yacine.feki@esprit.tn",
-                            subject: "Build failed",
-                            body: "failed"
-                    echo 'failed'
-                }
-              
+	  post{
+        changed{
+            mail to: "yacine.feki@esprit.tn",
+            subject: "jenkins build:${currentBuild.currentResult}: ${env.JOB_NAME}",
+            body: "${currentBuild.currentResult}: Job ${env.JOB_NAME}\nMore Info can be found here: ${env.BUILD_URL}"
+            
         }
+    }
 }
