@@ -64,23 +64,12 @@ pipeline{
                 }
                 }
 		
-		stage('DOCKER PUSH IMAGE') {
-            steps{
-                script {
-                    docker.withRegistry( '', DOCKERHUB_CREDENTIALS ) {
-                    dockerImage.push()
-                    }
-                }
-            }
-        }
-       /*
         stage("DockerPush") {
                  steps {
                  sh 'docker push yacinef/springprojet:latest'
                 }
                 }
              
-*/
 	       stage ('Maven Test Sonar') {
             steps {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=@yacine123'
