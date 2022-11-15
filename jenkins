@@ -41,38 +41,39 @@ pipeline{
                 }
             }
 	    
-	    stage("DockerLogin") {
-                steps {
-                sh 'docker login --username yacinef --password @yacine123'
-                }
-                }
+	   
 
-   stage("DockerPush") {
-                 steps {
-                 sh 'docker push yacinef/springprojet'
-                }
-                }
+   
            
             
              
-
+/*
               stage("DockerCompose") {
                  steps {
                  sh 'docker-compose up -d '
                 }
                 }
 	
-	
+*/	
 
-       stage('Build docker image'){
+        stage('Build docker image'){
             steps{
                 script{
                     sh 'docker build -t yacinef/springprojet .'
                 }
             }
         }
+	 stage("DockerLogin") {
+                steps {
+                sh 'docker login --username yacinef --password @yacine123'
+                }
+                }
        
-
+        stage("DockerPush") {
+                 steps {
+                 sh 'docker push yacinef/springprojet:latest'
+                }
+                }
              
 		     
 		 
