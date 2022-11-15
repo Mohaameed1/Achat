@@ -16,7 +16,7 @@ pipeline{
 
             stage('Cleaning the project') {
                  steps{
-                    sh "mvn -B -DskipTests clean  "
+                    sh 'mvn -B -DskipTests clean  '
                     }
                 }
 
@@ -40,7 +40,7 @@ pipeline{
              stage ('DOCKER BUILD IMAGE'){
             steps{
                 script {
-                   sh "dockerImage = docker.build registry + ":$BUILD_NUMBER""
+                   sh 'dockerImage = docker.build registry + ":$BUILD_NUMBER"'
                 }
             }
         }
@@ -55,7 +55,7 @@ pipeline{
         }
         stage('DOCKER CLEANING UP') {
             steps{
-                sh "docker rmi $registry:$BUILD_NUMBER"
+                sh 'docker rmi $registry:$BUILD_NUMBER'
             }
         }
 
