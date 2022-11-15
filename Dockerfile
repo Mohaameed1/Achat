@@ -1,3 +1,3 @@
 FROM openjdk:8-jdk-alpine
-COPY /target/achat-1.0.jar achatdevops.jar
-ENTRYPOINT ["java","-jar","/achatdevops.jar"]
+COPY /target/achat-1.0.jar achat1.0.jar
+ENTRYPOINT ["java","-jar","/achat1.0.jar"]
