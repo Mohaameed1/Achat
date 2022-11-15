@@ -47,13 +47,13 @@ pipeline{
            
             
              
-/*
+
               stage("DockerCompose") {
                  steps {
                  sh 'docker-compose up -d '
                 }
                 }
-	*/
+	
 
 /*
         stage('Build docker image'){
@@ -75,36 +75,7 @@ pipeline{
                 }
                 }
              
-		*/     
-		/*
-		stage("SonarQube Analysis") {
-                       steps {
-                         withSonarQubeEnv('sonar') {
-                           sh 'mvn clean -DskipTests package sonar:sonar'
-                         }
-                       }
-                     }
-		     
-		     */
-		     /*
-               stage("upload war to nexus") {
-                                           steps {
-                                         nexusArtifactUploader artifacts:
-                                          [[
-                                          artifactId: 'achat',
-                                          classifier: '',
-                                          file: 'target/springprojet.jar',
-                                           type: 'jar']],
-                                            credentialsId: 'nexus',
-                                             groupId: 'tn.esprit.rh',
-                                             nexusUrl: '192.168.56.3:8081',
-                                              nexusVersion: 'nexus3',
-                                               protocol: 'http',
-                                                repository: 'simpleapp-release/',
-                                                version: '1.0'
-                                           }
-                                           }
-					   */
+
 	       stage ('Maven Test Sonar') {
             steps {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=@yacine123'
@@ -117,7 +88,7 @@ pipeline{
               
             }
            }
-					   
+		*/			   
 
         }
 	  post {
