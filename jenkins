@@ -54,7 +54,7 @@ pipeline{
                 }
                 }
 	
-/*
+
 
         stage('Build docker image'){
             steps{
@@ -76,7 +76,7 @@ pipeline{
                 }
              
 		     
-		*/ 
+		/*
 		stage("SonarQube Analysis") {
                        steps {
                          withSonarQubeEnv('sonar') {
@@ -101,6 +101,8 @@ pipeline{
                                                 version: '1.0'
                                            }
                                            }
+					   
+		*/			   
 
         }
 	  post {
