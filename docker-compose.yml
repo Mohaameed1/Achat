@@ -20,8 +20,17 @@ services:
       - database
     networks:
       - projectnetwork 
-    restart: on-failure     
- 
+    restart: on-failure
+    
+  angular:
+    image: aminejridi/front
+    container_name: front
+    ports: 
+      - 80:80
+    depends_on:
+      - spring-boot
+    networks:
+      - projectnetwork
   
 networks:
   projectnetwork:
