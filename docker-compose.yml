@@ -5,7 +5,7 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_DATABASE: tpachato
+      MYSQL_DATABASE: achatdb
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD:        
   application:
