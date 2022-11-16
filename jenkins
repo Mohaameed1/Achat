@@ -65,7 +65,7 @@ pipeline{
                 }
         stage("DockerPush") {
                  steps {
-                 sh 'docker push y/yacinef/springprojet:latest'
+                 sh 'docker push yacinef/springprojet:latest'
                 }
                 }
 		
