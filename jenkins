@@ -64,13 +64,13 @@ pipeline{
                 }
                 }
 		
-		/*
+		
         stage("DockerPush") {
                  steps {
                  sh 'docker push yacinef/springprojet:latest'
                 }
                 }
-		*/
+		
 		
 		
 	       stage ('Maven Test Sonar') {
