@@ -6,7 +6,7 @@ pipeline{
      maven 'M2_HOME'
   }
       environment {
-
+         registry = "yacinef/springprojet" 
          DOCKERHUB_CREDENTIALS = credentials('dockerid')
 	 }
       
