@@ -1,28 +1,25 @@
-version: "3"
+version: "2"
+
 services:
-  spring-tpachatproject:
-    image: yacinef/springprojet
-    ports:
-      - "8089:8089"
-    networks:
-      - net-mysql
-    environment:
-        SPRING_DATASOURCE_URL: jdbc:mysql://mysqldb/achatdb
-        SPRING_DATASOURCE_USERNAME: root
-        SPRING_DATASOURCE_PASSWORD: root
-    depends_on:
-      - mysqldb
- 
-  mysqldb:
-    image: mysql:8
-    volumes:
-      -  /home/mysql/yacinefeki:/var/lib/mysql:rw
-    networks:
-      - net-mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=achatdb
-     
+ Sonarqube:
+  image: sonarqube:8.9.7-community
+  ports:
+   - "9000:9000"
+   - "9092:9092"
+  volumes:
+   - 'sonarQube_data:/opt/SonarQube/data'
+   - 'sonarQube_extensions:/opt/SonarQube/extensions'
+   - 'sonarQube_logs:/opt/SonarQube/logs'
   
-networks:
-  net-mysql: 
+ nexus:
+  image: sonatype/nexus3
+  ports:
+   - "8081:8081"
+  volumes:
+   - "nexus-data:/sonatype-work"
+
+volumes:
+ sonarQube_data:
+ sonarQube_extensions:
+ sonarQube_logs: 
+ nexus-data: {}
