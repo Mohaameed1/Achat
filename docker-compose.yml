@@ -21,15 +21,7 @@ services:
     networks:
       -projectNetwork
     restart: on-failure   
-  angular:
-    image: mohamedhediguefrech/front:latest
-    container_name: angular
-    ports: 
-      - 80:80
-    depends_on:
-      - spring-boot
-    networks:
-      -projectNetwork
+  
   
 networks:
   projectNetwork:
