@@ -38,8 +38,7 @@ pipeline{
                        steps {
                          withSonarQubeEnv('sonars') {
                            sh 'mvn clean -DskipTests package sonar:sonar'
-			   -Dsonar.login=admin
-			   -Dsonar.password=sonar
+
                          }
                        }
                      }
