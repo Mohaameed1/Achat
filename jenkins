@@ -54,7 +54,7 @@ pipeline{
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t y/yacinef/springprojet:latest .'
+                    sh 'docker build -t yacinef/springprojet .'
                 }
             }
         }
@@ -65,7 +65,7 @@ pipeline{
                 }
         stage("DockerPush") {
                  steps {
-                 sh 'docker push yacinef/springprojet:latest'
+                 sh 'docker push yacinef/springprojet:1.0.0'
                 }
                 }
 		
