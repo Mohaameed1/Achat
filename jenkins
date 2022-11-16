@@ -54,7 +54,7 @@ pipeline{
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t yacinef/springprojet:1.0.0 .'
+                    sh 'docker build -t yacinef/springprojet:latest .'
                 }
             }
         }
@@ -67,7 +67,7 @@ pipeline{
 		/*
         stage("DockerPush") {
                  steps {
-                 sh 'docker push yacinef/springprojet:1.0.0'
+                 sh 'docker push yacinef/springprojet:latest'
                 }
                 }
 		*/
@@ -85,20 +85,28 @@ pipeline{
             }
            }
 			
-	/*	
+		
 	stage("DockerCompose") {
                  steps {
-                 sh 'docker-compose up -d '
+                 sh "docker compose -f docker-compose.yml up -d "
                 }
                 }	
-*/
-        stage('Sending email'){
-	            			steps {
-	            			
-	            				  emailext attachLog: true, body: "the result is :  ${currentBuild.result}", compressLog: true, subject: "Status of pipeline: ${currentBuild.fullDisplayName}", to: 'yacine.feki@esprit.tn'
-						    }
-				    }
-	
+
+        stage("Send Email"){
+           steps{
+          	 emailext attachLog: true, body: "${env.BUILD_URL} has result ${currentBuild.result}", compressLog: true, subject: "Status of pipeline: ${currentBuild.fullDisplayName}", to: 'yacine.feki@esprit.tn'
+               emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+           }
+       }
+        
 	}
+	post {
+      	always {
+      		sh 'docker logout'
+      		emailext attachLog: true, body: "${env.BUILD_URL} has result ${currentBuild.result}", compressLog: true, subject: "Status of pipeline: ${currentBuild.fullDisplayName}", to: 'fekiyacine6@gmail.com'
+          	emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
+  		
+      	}
+      }
 	  
 }
