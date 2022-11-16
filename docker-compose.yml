@@ -9,7 +9,7 @@ services:
     ports:
       - 3306:3306
     networks:
-     - projectnetwork
+     - hedinet
      
   spring-boot:
     image: mohamedhediguefrech/achat:1.0
@@ -19,7 +19,7 @@ services:
     depends_on:
       - database
     networks:
-      - projectnetwork 
+      -hedinet
     restart: on-failure   
   angular:
     image: mohamedhediguefrech/front:latest
@@ -29,7 +29,7 @@ services:
     depends_on:
       - spring-boot
     networks:
-      - projectnetwork
+      -hedinet
   
 networks:
-  projectnetwork:
+  hedinet:
