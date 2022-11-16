@@ -4,7 +4,7 @@ services:
     image: mysql
     container_name: mysql
     environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
       MYSQL_DATABASE: achatdb   
     ports:
       - 3306:3306
@@ -20,8 +20,16 @@ services:
       - database
     networks:
       - projectnetwork 
-    restart: on-failure     
- 
+    restart: on-failure   
+     angular:
+    image: mohamedhediguefrech/front:latest
+    container_name: angular
+    ports: 
+      - 80:80
+    depends_on:
+      - spring-boot
+    networks:
+      - projectnetwork
   
 networks:
   projectnetwork:
