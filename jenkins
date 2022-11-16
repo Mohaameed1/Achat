@@ -63,13 +63,13 @@ pipeline{
                 sh 'docker login --username yacinef --password @yacine123'
                 }
                 }
-		
+	/*	
         stage("DockerPush") {
                  steps {
                  sh 'docker push yacinef/springprojet:latest'
                 }
                 }
-             
+             */
 	       stage ('Maven Test Sonar') {
             steps {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=@yacine123'
