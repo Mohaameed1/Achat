@@ -64,14 +64,14 @@ pipeline{
                 }
                 }
 		
-		
+	/*	
         stage("DockerPush") {
                  steps {
                  sh 'docker push yacinef/springprojet:latest'
                 }
                 }
 		
-		
+		*/
 		
 	       stage ('Maven Test Sonar') {
             steps {
@@ -86,13 +86,13 @@ pipeline{
             }
            }
 			
-		/*
+		
 	stage("DockerCompose") {
                  steps {
                  sh "docker compose -f docker-compose.yml up -d "
                 }
                 }	
-*/
+
         stage("Send Email"){
            steps{
           	 emailext attachLog: true, body: "${env.BUILD_URL} has result ${currentBuild.result}", compressLog: true, subject: "Status of pipeline: ${currentBuild.fullDisplayName}", to: 'yacine.feki@esprit.tn'
