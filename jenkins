@@ -60,12 +60,12 @@ pipeline{
         }
 	 stage("DockerLogin") {
                 steps {
-                sh 'docker login --username yacinef --password @yacine123 docker.io'
+                sh 'docker login -u yacinef -p @yacine123 '
                 }
                 }
         stage("DockerPush") {
                  steps {
-                 sh 'docker push docker.io/yacinef/springprojet:latest'
+                 sh 'docker push yacinef/springprojet:latest'
                 }
                 }
 		
