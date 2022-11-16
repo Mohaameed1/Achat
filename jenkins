@@ -71,7 +71,7 @@ pipeline{
 		
 	       stage ('Maven Test Sonar') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=@yacine123'
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=@yacine123 docker.io'
             }
           }
 	  
