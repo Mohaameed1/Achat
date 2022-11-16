@@ -22,6 +22,17 @@ services:
       - projectnetwork 
     restart: on-failure
     
+   spring-boot:
+    image: aminejridi/achat:1.0
+    container_name: spring
+    ports:
+      - 8089:8089
+    depends_on:
+      - database
+    networks:
+      - projectnetwork 
+    restart: on-failure     
+    
   angular:
     image: aminejridi/front
     container_name: front
