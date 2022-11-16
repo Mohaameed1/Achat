@@ -54,7 +54,7 @@ pipeline{
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t yacinef/springprojet .'
+                    sh 'docker build -t yacinef/springprojet:latest .'
                 }
             }
         }
@@ -63,13 +63,12 @@ pipeline{
                 sh 'docker login --username yacinef --password @yacine123'
                 }
                 }
-	/*	
         stage("DockerPush") {
                  steps {
                  sh 'docker push yacinef/springprojet:latest'
                 }
                 }
-             */
+		
 	       stage ('Maven Test Sonar') {
             steps {
                 sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=@yacine123'
