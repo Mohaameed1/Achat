@@ -60,18 +60,18 @@ pipeline{
         }
 	 stage("DockerLogin") {
                 steps {
-                sh 'docker login --username yacinef --password @yacine123'
+                sh 'docker login --username yacinef --password @yacine123 docker.io'
                 }
                 }
         stage("DockerPush") {
                  steps {
-                 sh 'docker push yacinef/springprojet:latest'
+                 sh 'docker push docker.io/yacinef/springprojet:latest'
                 }
                 }
 		
 	       stage ('Maven Test Sonar') {
             steps {
-                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=@yacine123 docker.io'
+                sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=@yacine123'
             }
           }
 	  
