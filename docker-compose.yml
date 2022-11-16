@@ -21,7 +21,7 @@ services:
     networks:
       - projectnetwork 
     restart: on-failure   
-     angular:
+  angular:
     image: mohamedhediguefrech/front:latest
     container_name: angular
     ports: 
